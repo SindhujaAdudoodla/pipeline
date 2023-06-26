@@ -78,5 +78,6 @@
         </profile>
      </profiles>
 </settings>
-
+<!-- Optional URL to server. Default value is http://localhost:9000 -->
 </project>
+
