@@ -10,29 +10,46 @@ pipeline{
 
     stages{
 
-    stage('Build and Test') {
+             stage('Build and Test') {
 
-          steps {
+                steps {
 
-        sh 'ls -ltr'
-        // build the project and create a JAR file
-        sh  'mvn clean package'
+                     sh 'ls -ltr'
+                     // build the project and create a JAR file
+                    sh  'mvn clean package'
                  }
-    }
-    stage('sonar quality status'){
+            }
+            stage('sonar quality status'){
 
-        environment {
-        SONAR_URL = "http://184.73.128.228:9000"
+              environment {
+        
+                SONAR_URL = "http://54.242.225.45:9000"
+
                     }
             
-            steps{
+                 steps{
 
-        withCredentials([string(credentialsId: 'sonar-token', variable: 'sonar_token')]) {
-          sh 'mvn sonar:sonar -Dsonar.login=$sonar_token -Dsonar.host.url=${SONAR_URL}'
+                     withCredentials([string(credentialsId: 'sonar-token', variable: 'sonar_token')]) {
+
+                      sh 'mvn sonar:sonar -Dsonar.login=$sonar_token -Dsonar.host.url=${SONAR_URL}'
         
-                 }
-
-                }
+                         }
+  
+                    }
             }
+
+             stage ('quality gate status'){
+
+                steps{
+
+                     script{
+
+                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+
+
+                     }
+                }
+        }
+
         }
     }
