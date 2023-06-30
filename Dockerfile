@@ -8,4 +8,5 @@ WORKDIR /opt/app
 COPY ${JAR_FILE} app.jar
 
 # This should not be changed
+EXPOSE 8081
 ENTRYPOINT ["java","-jar","app.jar"]
