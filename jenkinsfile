@@ -56,8 +56,8 @@ pipeline{
                           sh '''
                               docker build -q -t spring-app:${VERSION} .
                               docker login -u admin -p $nexus_creds 18.206.38.226:8083
-                              docker push 18.206.38.226:8083/spring app:${VERSION}
-                              docker rmi 18.206.38.226:8083/spring app:${VERSION}
+                              docker push spring-app:${VERSION}
+                              docker rmi spring-app:${VERSION}
 
 
                             '''
