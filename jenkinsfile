@@ -74,7 +74,7 @@ pipeline{
 
                     script{
 
-                        dir('kubernetes/myapp'){
+                        dir('kubernetes/'){
                       
                          sh  'helm datree test .'
 
@@ -84,21 +84,6 @@ pipeline{
              }
 
         }
-
-        post {
-  always {
-    cleanWs()
-    dir("${env.WORKSPACE}@tmp") {
-      deleteDir()
-    }
-    dir("${env.WORKSPACE}@script") {
-      deleteDir()
-    }
-    dir("${env.WORKSPACE}@script@tmp") {
-      deleteDir()
-    }
-  }
-}
 
         post {
 
