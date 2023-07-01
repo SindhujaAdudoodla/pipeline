@@ -67,7 +67,7 @@ pipeline{
                     }
                 }
             }
-
+           
              stage('Identifying misconfigs using datree in helm charts'){
 
                 steps{
@@ -84,6 +84,21 @@ pipeline{
              }
 
         }
+
+        post {
+  always {
+    cleanWs()
+    dir("${env.WORKSPACE}@tmp") {
+      deleteDir()
+    }
+    dir("${env.WORKSPACE}@script") {
+      deleteDir()
+    }
+    dir("${env.WORKSPACE}@script@tmp") {
+      deleteDir()
+    }
+  }
+}
 
         post {
 
