@@ -73,7 +73,7 @@ pipeline{
                 agent {
             node {
               label 'my-label'
-              customWorkspace '/var/lib/jenkins/workspace/CICD pipeline'
+              customWorkspace '/var/lib/jenkins/workspace/CICD pipeline/kubernetes/myapp'
                  }
                  }
 
@@ -81,7 +81,8 @@ pipeline{
 
                     script{
 
-                       dir('kubernetes/myapp/'){
+                      // dir('kubernetes/myapp/')
+                      
 
                         withEnv(['DATREE_TOKEN=GJdx2cP2TCDyUY3EhQKgTc']){
 
@@ -91,7 +92,7 @@ pipeline{
                       
                         }
                     }
-                }
+                
              }
     }
 
