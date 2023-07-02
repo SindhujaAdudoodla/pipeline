@@ -28,7 +28,7 @@ pipeline{
 
               environment {
         
-                SONAR_URL = "http://54.88.152.38:9000"
+                SONAR_URL = "http://3.80.130.143:9000"
 
                     }
             
@@ -54,10 +54,10 @@ pipeline{
                         withCredentials([string(credentialsId: 'nexus_passwd', variable: 'nexus_creds')]) {
     
                           sh '''
-                              docker build -t 52.87.240.67:8083/spring-app:${VERSION} .
-                              docker login -u admin -p $nexus_creds 52.87.240.67:8083
-                              docker push 52.87.240.67:8083/spring-app:${VERSION}
-                              docker rmi 52.87.240.67:8083/spring-app:${VERSION}
+                              docker build -t 54.172.6.59:8083/spring-app:${VERSION} .
+                              docker login -u admin -p $nexus_creds 54.172.6.59:8083
+                              docker push 54.172.6.59:8083/spring-app:${VERSION}
+                              docker rmi 54.172.6.59:8083/spring-app:${VERSION}
 
 
                             '''
