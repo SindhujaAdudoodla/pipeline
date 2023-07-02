@@ -77,10 +77,7 @@ pipeline{
                     script{
 
                        dir('kubernetes/myapp'){
-                        cleanWs()
-                        dir("${env.WORKSPACE}@tmp") {
-                        deleteDir()
-    }
+                        
                       
 
                         withEnv(['DATREE_TOKEN=GJdx2cP2TCDyUY3EhQKgTc']){
