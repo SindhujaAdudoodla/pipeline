@@ -73,7 +73,7 @@ pipeline{
                 agent {
             node {
               label 'my-label'
-              customWorkspace '/var/lib/jenkins/workspace/CICD pipeline/kubernetes/myapp'
+              customWorkspace '/var/lib/jenkins/workspace/CICD pipeline'
                  }
                  }
 
