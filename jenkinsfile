@@ -70,15 +70,22 @@ pipeline{
            
              stage('Identifying misconfigs using datree in helm charts'){
 
+                agent {
+            node {
+              label 'my-label'
+              customWorkspace '/var/lib/jenkins/workspace/CICD pipeline/kubernetes/myapp'
+                 }
+                 }
+
                 steps{
 
                     script{
 
-                       dir('kubernetes/'){
+                       dir('kubernetes/myapp/'){
 
                         withEnv(['DATREE_TOKEN=GJdx2cP2TCDyUY3EhQKgTc']){
 
-                          sh 'helm datree test myapp/' 
+                          sh 'helm datree test .' 
 
                            }
                       
