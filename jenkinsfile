@@ -76,7 +76,7 @@ pipeline{
 
                     script{
 
-                       dir('kubernetes/myapp/'){
+                       dir('kubernetes/myapp'){
                         cleanWs()
                         dir("${env.WORKSPACE}@tmp") {
                         deleteDir()
