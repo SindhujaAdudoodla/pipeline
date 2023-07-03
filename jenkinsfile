@@ -70,6 +70,7 @@ pipeline{
 
             stage('Debug') {
   steps {
+     sh 'echo $PATH'
     sh 'printenv'
   }
 }
