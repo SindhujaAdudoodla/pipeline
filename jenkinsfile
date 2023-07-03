@@ -67,6 +67,12 @@ pipeline{
                     }
                 }
             }
+            stage('Build') {
+      steps {
+    sh '/usr/local/bin/helm version'
+          }
+    }
+
 
            stage(' pushing helm charts to nexus repo'){
 
