@@ -104,7 +104,7 @@ pipeline{
 
                     withCredentials([string(credentialsId: 'nexus_passwd', variable: 'nexus_creds')]){
 
-                        dir('kuberenets/'){
+                        dir('kubernetes/'){
                             
                             sh '''
                                 
