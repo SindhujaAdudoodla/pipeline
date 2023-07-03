@@ -74,6 +74,12 @@ pipeline{
   }
 }
 
+stage('Debug2') {
+  steps {
+    sh 'which helm'
+  }
+}
+
             stage('Build') {
       steps {
          sh 'helm version'
