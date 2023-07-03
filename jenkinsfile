@@ -84,6 +84,7 @@ pipeline{
         sh 'which helm'
         sh 'helm version'
     }
+
 }
 
            
@@ -93,7 +94,7 @@ pipeline{
 
              environment {
 
-             PATH = "/usr/local/bin/helm"
+             PATH = "/usr/bin/helm"
 
                   }
 
