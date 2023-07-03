@@ -75,6 +75,9 @@ pipeline{
 }
 
 stage('Debug2') {
+     environment {
+        PATH = "/usr/sbin:${env.PATH}"
+    }
   steps {
     sh 'which helm'
   }
