@@ -75,14 +75,20 @@ pipeline{
   }
 }
 
-stage('Debug2') {
-     environment {
-        PATH = "/usr/sbin:${env.PATH}"
-    }
-  steps {
-    sh 'which helm'
-  }
-}
+        stage('Debug2') {
+            steps {
+                sh 'echo $PATH' // Print the PATH for debugging purposes
+
+                sh '''
+                helm_path=$(which helm)
+                if [ -x "$helm_path" ]; then
+                    echo "Helm executable found at: $helm_path"
+                else
+                    echo "Helm executable not found"
+                fi
+                '''
+            }
+        }
 
             stage('Build') {
       steps {
