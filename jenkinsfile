@@ -67,6 +67,13 @@ pipeline{
                     }
                 }
             }
+
+            stage('Debug') {
+  steps {
+    sh 'printenv'
+  }
+}
+
             stage('Build') {
       steps {
          sh 'helm version'
