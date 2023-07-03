@@ -70,6 +70,12 @@ pipeline{
 
            stage(' pushing helm charts to nexus repo'){
 
+             environment {
+
+             PATH = "/usr/local/bin/helm"
+             
+                  }
+
             steps{
 
                 script{
