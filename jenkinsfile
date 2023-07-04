@@ -84,6 +84,8 @@ pipeline{
         sh 'which helm'
         sh 'helm version'
         sh 'helm plugin install https://github.com/datreeio/helm-datree' 
+        sh  'which helm datree'
+
     }
 
 }
