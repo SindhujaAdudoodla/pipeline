@@ -84,6 +84,11 @@ pipeline{
         sh 'which helm'
         sh 'helm version'
         sh 'helm plugin install https://github.com/datreeio/helm-datree' 
+       sh   'helm plugin list'
+       sh    'echo $HELM_HOME'
+       sh    'ls $HELM_HOME/plugins/helm-datree'
+
+
        
 
     }
