@@ -83,20 +83,23 @@ pipeline{
         sh './get_helm.sh'
         sh 'which helm'
         sh 'helm version'
+        sh 'helm plugin install https://github.com/datreeio/helm-datree' 
     }
 
 }
 
+
+
            
 
 
-           stage(' pushing helm charts to nexus repo'){
+    stage(' pushing helm charts to nexus repo'){
 
-             environment {
+     environment {
 
-             PATH = "/usr/bin/local/helm"
+          PATH = "/usr/bin/local/helm"
 
-                  }
+                }
 
             steps{
 
