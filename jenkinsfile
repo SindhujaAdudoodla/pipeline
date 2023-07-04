@@ -88,16 +88,26 @@ pipeline{
 
 }
 
+ stage('indentifying misconfigs using datree in helm charts'){
+            steps{
+                script{
+
+                    dir('kubernetes/') {
+                        
+                              sh 'helm datree test myapp/'
+                        
+                    }
+                }
+            }
+        }
 
 
-           
 
+ stage(' pushing helm charts to nexus repo'){
 
-    stage(' pushing helm charts to nexus repo'){
+          environment {
 
-     environment {
-
-          PATH = "/usr/bin/local/helm"
+              PATH = "/usr/bin/local/helm"
 
                 }
 
